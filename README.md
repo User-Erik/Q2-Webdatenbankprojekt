@@ -1,7 +1,15 @@
 # Q2-Webdatenbankprojekt
 
 ## ER und Relationenmodell: 
-https://www.lucidchart.com/documents/view/bf947a93-feac-44f2-807b-d5437b252e85
+![ERD-Diagramm](/Documentation/ERD.png)
+
+Termine(**TerminId**, ↑SchülerId, Titel, Beschreibung, Datum, Fach, Art)  
+Schüler(**SchülerId**, Name, PasswordHash)  
+Kursbelegung(**↑KursId**, **↑SchülerId**, Name, Fach, Lehrer(Name))  
+Kurse(**KursId**, Fach, Halbjahr, ↑Lehrer)  
+Lehrer(**LehrerId**, Name, Mail)  
+
+
 
 ## Server-Adresse:
 noch nicht verfügbar
