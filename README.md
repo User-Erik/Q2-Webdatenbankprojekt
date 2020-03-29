@@ -12,4 +12,4 @@ Lehrer(**LehrerId**, Name, Mail)
 
 
 ## Server-Adresse:
-noch nicht verfügbar
+http://84.60.123.107
