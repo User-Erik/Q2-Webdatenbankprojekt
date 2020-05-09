@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+/*<<<<<<<<<<<GENERAL STYLE>>>>>>>>>>>*/
+
+html {
+  background: linear-gradient(#272630, #5e94a0) no-repeat center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  padding-bottom: 150px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-style: solid;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: red;
+}
+
+#float {
+  float:right;
+  background-color: black;
+}
+
+.active#float {
+  float:right;
+  background-color: red;
+}
+
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+
+footer a {
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/*<index.html>*/
+
+.active {
+  background-color: red;
+}
+
+.widgets a {
+  color: red;
+}
+
+.widgets ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: white;
+}
+
+.widgets li {
+  width: 40%;
+  padding: 10px;
+}
+
+.schedule:hover, .classes:hover, .grades:hover, .examSchedule:hover, .files:hover {
+  background-color: grey;
+}
+
+.timeline:hover, .timetable:hover, .pendingHomework:hover, .upcomingExams:hover, .avgGrade:hover, .unsuure:hover, .filetable:hover {
+  background-color: #282c34;
+}
+
+.schedule, .classes, .grades, .examSchedule, .files {
+  background-color: #282c34;
+  border-style: solid;
+}
+
+.schedule {
+  padding: 5px;
+}
+
+/*<<<<<<<<<<<Timeline>>>>>>>>>>>*/
+
+.timeline {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.slideCaption {
+
+}
+
+.slideContent {
+  color: white;
+  position: absolute;
+  left: 30px;
+  border-style: solid;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*<<<<<<<<<<<Timeline>>>>>>>>>>>*/
+
+.timetable {
+  overflow-x: auto;
+}
+
+.classes {
+
+}
+
+.pendingHomework {
+
+}
+
+.upcomingExams {
+
+}
+
+.grades {
+
+}
+
+.avgGrade{
+
+
+}
+
+.Grade1 {
+
+}
+
+.files {
+
+}
+
+.serverStatus {
+  display: flex;
+  justify-content: center;
+}
+
+/*<<<<<<<<<<<classes.html>>>>>>>>>>>*/
+
+
+
+/*<<<<<<<<<<<calendar.html>>>>>>>>>>>*/
+.calendar ul {
+  list-style-type: none;
+}
+
+.month {
+  padding: 70px 25px;
+  width: auto;
+  background: black;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prevCalendar {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .nextCalendar {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+.days li:hover {
+  background-color: grey;
+  color: white;
+}
+
+/*<<<<<<<<<<<exercises.html>>>>>>>>>>>*/
+
+/*<<<<<<<<<<<add.html>>>>>>>>>>>*/
+
+/*<<<<<<<<<<<settings.html>>>>>>>>>>>*/
+
+/*<<<<<<<<<<<info.html>>>>>>>>>>>*/

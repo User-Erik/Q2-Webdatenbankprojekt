@@ -1,6 +1,6 @@
 # Q2-Webdatenbankprojekt
 
-## ER und Relationenmodell: 
+## ER und Relationenmodell:
 ![ERD-Diagramm](/Documentation/ERD.png)
 
 Termine(**TerminId**, ↑SchülerId, Titel, Beschreibung, Datum, Art)  
