@@ -1,0 +1,3 @@
+- login-form --> account creation (password encryption)
+- settings --> customizable layouts, widgets, paragraphs, etc
+- 

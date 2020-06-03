@@ -21,3 +21,17 @@ function showSlides(n) {
 }
 
 //////////////////////////////////////////calendar/////////////////////////////////////////////
+
+//////////////////////////////////////////Login-Signup/////////////////////////////////////////////
+
+function switchLoginSignup() {
+var x = document.getElementById("1");
+var y = document.getElementById("2");
+if(window.getComputedStyle(x).display === "none"){
+  document.getElementById("2").style ="display: none;";
+  document.getElementById("1").style ="display: block;";
+  } else {
+  document.getElementById("1").style ="display: none;";
+  document.getElementById("2").style ="display: block;";
+}
+}

@@ -1,4 +1,9 @@
-<?php include 'functions.php'; ?>
+<?php
+//Get all required functions
+require 'functions.php';
+//connect to the DB with the website-user account and fetch their data to display it
+conn()
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +19,10 @@
   <nav>
     <ul>
       <li class="active"><a href="#">Übersicht</a></li>
-      <li><a href="classes.html">Kurse</a></li>
-      <li><a href="exercises.html">Aufgaben</a></li>
-      <li><a href="calendar.html">Kalender</a></li>
-      <li><a href="add.html">+</a></li>
+      <li><a href="classes.php">Kurse</a></li>
+      <li><a href="exercises.php">Aufgaben</a></li>
+      <li><a href="calendar.php">Kalender</a></li>
+      <li><a href="add.php">+</a></li>
       <li id="float"><a href="info.html">Infos</a></li>
       <li id="float"><a href="settings.html">Einstellungen</a></li>
     </ul>

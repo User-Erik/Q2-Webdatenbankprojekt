@@ -5,11 +5,36 @@ $servername = "";
 $username = "";
 $password = "";
 
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+/// Querys ///
+
+
+$Q "";
+$Q "";
+$Q "";
+$Q "";
+
 //// Functions ////
 
-// Connect to DB //
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
 
-function Con($servernname, $username, $password) {
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+// Connect to DB //
+function Conn() {
   // Create connection
   $conn = new mysqli($servername, $username, $password);
   // Check connection
@@ -21,109 +46,44 @@ function Con($servernname, $username, $password) {
   }
 }
 
+// gets the content from the DB and displays it //
 function TimelineContent() {
   // code...
-  echo " <div class="slides fade" style="display: block;">
-          <table class="slideContent">
+  Conn();
+  $QTimeline "";
+  $result = $conn->query($QTimeline);
+  if ($result->num_rows > 0) {
+    echo '<div class="slides fade" style="display: block;"><table class="slideContent"><thead>';
+    while ($row = $result->fetch_assoc()) {
+      echo $row["Titel"].'</thead>';
+    }
+    echo '</table></div>';
+  } else {
+    echo "0 results";
+  }
 
-          </table>
-        </div>
-        <div class="slides fade">
-          <table class="slideContent">
-
-          </table>
-        </div>
-        <div class="slides fade">
-          <table class="slideContent">
-
-          </table>
-        </div>
-        <div class="slides fade">
-          <table class="slideContent">
-
-          </table>
-        </div>";
 
 }
 
+// Connect to DB //
 function TimetableContent() {
   // code...
-  echo "
-    <table>
-     <tr>
-       <th>Stunde</th>
-       <th>Montag</th>
-       <th>Dienstag</th>
-       <th>Mittwoch</th>
-       <th>Donnerstag</th>
-       <th>Freitag</th>
-     </tr>
-     <tr>
-       <td>1</td>
-       <td id="Mon1">Mathe</td>
-       <td id="Tue1">Mathe</td>
-       <td id="Wed1">Mathe</td>
-       <td id="Thu1">Mathe</td>
-       <td id="Fri1">Mathe</td>
-     <tr>
-       <td>2</td>
-       <td id="Mon2">Mathe</td>
-       <td id="Tue2">Mathe</td>
-       <td id="Wed2">Mathe</td>
-       <td id="Thu2">Mathe</td>
-       <td id="Fri2">Mathe</td>
-     </tr>
-     <tr>
-       <td>3</td>
-       <td id="Mon3">Mathe</td>
-       <td id="Tue3">Mathe</td>
-       <td id="Wed3">Mathe</td>
-       <td id="Thu3">Mathe</td>
-       <td id="Fri3">Mathe</td>
-     </tr>
-     <tr>
-       <td>4</td>
-       <td id="Mon4">Mathe</td>
-       <td id="Tue4">Mathe</td>
-       <td id="Wed4">Mathe</td>
-       <td id="Thu4">Mathe</td>
-       <td id="Fri4">Mathe</td>
-     </tr>
-     <tr>
-       <td>5</td>
-       <td id="Mon5">Mathe</td>
-       <td id="Tue5">Mathe</td>
-       <td id="Wed5">Mathe</td>
-       <td id="Thu5">Mathe</td>
-       <td id="Fri5">Mathe</td>
-     </tr>
-     <tr>
-       <td>6</td>
-       <td id="Mon6">Mathe</td>
-       <td id="Tue6">Mathe</td>
-       <td id="Wed6">Mathe</td>
-       <td id="Thu6">Mathe</td>
-       <td id="Fri6">Mathe</td>
-     </tr>
-     <tr>
-       <td>7</td>
-       <td id="Mon7">Mathe</td>
-       <td id="Tue7">Mathe</td>
-       <td id="Wed7">Mathe</td>
-       <td id="Thu7">Mathe</td>
-       <td id="Fri7">Mathe</td>
-     </tr>
-     <tr>
-       <td>8</td>
-       <td id="Mon8">Mathe</td>
-       <td id="Tue8">Mathe</td>
-       <td id="Wed8">Mathe</td>
-       <td id="Thu8">Mathe</td>
-       <td id="Fri8">Mathe</td>
-     </tr>
-    </table>";
+  Conn();
+  $QTimetable "";
+  $result = $conn->query($QTimetable);
+  if ($result->num_rows > 0) {
+    echo '<h3>Stundenplan</h3><table><tr><th>Stunde</th><th>Montag</th><th>Dienstag</th><th>Mittwoch</th><th>Donnerstag</th><th>Freitag</th></tr><tr>';
+    while ($row = $result->fetch_assoc()) {
+      echo '<td>'.$row["ID"].'</td><td id="Mon'.$stunde'">'.$row["Mon"].'</td><td id="Tue'+ $stunde'">'.$row["Tue"].'</td><td id="Wed'+ $stunde'">'.$row["Wed"].'</td><td id="Thu'+ $stunde'">'.$row["Thu"].'</td><td id="Fri'+ $stunde'">'.$row["Fri"].'</td>'
+      $stunde++;
+    }
+    echo '</tr></table>';
+  } else {
+    echo "0 results";
+  }
 }
 
+// Connect to DB //
 function HomeworkPending() {
   // code...
   echo "
@@ -131,6 +91,7 @@ function HomeworkPending() {
   </table>";
 }
 
+// Connect to DB //
 function ExamsUpcoming() {
   // code...
 echo "
@@ -138,11 +99,13 @@ echo "
   </table>";
 }
 
+// Connect to DB //
 function AvgGrade() {
   // code...
   echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>";
 }
 
+// Connect to DB //
 function FiletableContent() {
   // code...
 echo "
@@ -150,12 +113,14 @@ echo "
   </table>";
 }
 
+// Connect to DB //
 function ConnectionStatus() {
 
 }
 
+// Connect to DB //
 function Footer() {
-
+  echo "";
 }
 
 ?>

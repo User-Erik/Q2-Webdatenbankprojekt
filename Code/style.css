@@ -68,7 +68,25 @@ footer a {
   text-decoration: none;
 }
 
+
 /*<index.html>*/
+
+.index-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: black;
+}
+
+.login {
+  background-color: white;
+}
+
+.signup {
+  background-color: white;
+}
+
+/*<overview.html>*/
 
 .active {
   background-color: red;

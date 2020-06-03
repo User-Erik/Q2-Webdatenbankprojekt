@@ -1,216 +1,56 @@
-<?php include 'functions.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Abiplaner</title>
+  <title>Login/Registrieren</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="description" content="Abitur-Planer">
   <meta name="author" content="Erik Weber">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" charset="utf-8"></script>
+  <script src="C:\Users\Erik Weber\OneDrive\schulzeug\GitHub\Q2-Webdatenbankprojekt\Code\script.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  function switchLoginSignup() {
+  var x = document.getElementById("1");
+  var y = document.getElementById("2");
+  if(window.getComputedStyle(x).display === "none"){
+    document.getElementById("2").style ="display: none;";
+    document.getElementById("1").style ="display: block;";
+    } else {
+    document.getElementById("1").style ="display: none;";
+    document.getElementById("2").style ="display: block;";
+  }
+  }
+  </script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li class="active"><a href="#">Übersicht</a></li>
-      <li><a href="classes.html">Kurse</a></li>
-      <li><a href="exercises.html">Aufgaben</a></li>
-      <li><a href="calendar.html">Kalender</a></li>
-      <li><a href="add.html">+</a></li>
-      <li id="float"><a href="info.html">Infos</a></li>
-      <li id="float"><a href="settings.html">Einstellungen</a></li>
-    </ul>
-  </nav>
-    <br>
-    <br>
-  <section class="widgets">
-    <ul>
-      <li>
-        <article class="schedule">
-            <h2>Termine</h2>
-            <div class="timeline">
-              <div class="slides fade" style="display: block;">
-                <table class="slideContent">
-                  <thead>
-                    Termin 1
-                  </thead>
-                </table>
-              </div>
-              <div class="slides fade">
-                <table class="slideContent">
-                  <thead>
-                  Termin 2
-                  </thead>
-                </table>
-              </div>
-              <div class="slides fade">
-                <table class="slideContent">
-                  <thead>
-                    Termin 3
-                  </thead>
-                </table>
-              </div>
-              <div class="slides fade">
-                <table class="slideContent">
-                  <thead>
-                    Termin 4
-                  </thead>
-                </table>
-              </div>
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-              </div>
-            </div>
-            <br>
-            <br>
-            <div class="timetable">
-              <h3>Stundenplan</h3>
-              <table>
-               <tr>
-                 <th>Stunde</th>
-                 <th>Montag</th>
-                 <th>Dienstag</th>
-                 <th>Mittwoch</th>
-                 <th>Donnerstag</th>
-                 <th>Freitag</th>
-               </tr>
-               <tr>
-                 <td>1</td>
-                 <td id="Mon1">Mathe</td>
-                 <td id="Tue1">Mathe</td>
-                 <td id="Wed1">Mathe</td>
-                 <td id="Thu1">Mathe</td>
-                 <td id="Fri1">Mathe</td>
-               <tr>
-                 <td>2</td>
-                 <td id="Mon2">Mathe</td>
-                 <td id="Tue2">Mathe</td>
-                 <td id="Wed2">Mathe</td>
-                 <td id="Thu2">Mathe</td>
-                 <td id="Fri2">Mathe</td>
-               </tr>
-               <tr>
-                 <td>3</td>
-                 <td id="Mon3">Mathe</td>
-                 <td id="Tue3">Mathe</td>
-                 <td id="Wed3">Mathe</td>
-                 <td id="Thu3">Mathe</td>
-                 <td id="Fri3">Mathe</td>
-               </tr>
-               <tr>
-                 <td>4</td>
-                 <td id="Mon4">Mathe</td>
-                 <td id="Tue4">Mathe</td>
-                 <td id="Wed4">Mathe</td>
-                 <td id="Thu4">Mathe</td>
-                 <td id="Fri4">Mathe</td>
-               </tr>
-               <tr>
-                 <td>5</td>
-                 <td id="Mon5">Mathe</td>
-                 <td id="Tue5">Mathe</td>
-                 <td id="Wed5">Mathe</td>
-                 <td id="Thu5">Mathe</td>
-                 <td id="Fri5">Mathe</td>
-               </tr>
-               <tr>
-                 <td>6</td>
-                 <td id="Mon6">Mathe</td>
-                 <td id="Tue6">Mathe</td>
-                 <td id="Wed6">Mathe</td>
-                 <td id="Thu6">Mathe</td>
-                 <td id="Fri6">Mathe</td>
-               </tr>
-               <tr>
-                 <td>7</td>
-                 <td id="Mon7">Mathe</td>
-                 <td id="Tue7">Mathe</td>
-                 <td id="Wed7">Mathe</td>
-                 <td id="Thu7">Mathe</td>
-                 <td id="Fri7">Mathe</td>
-               </tr>
-               <tr>
-                 <td>8</td>
-                 <td id="Mon8">Mathe</td>
-                 <td id="Tue8">Mathe</td>
-                 <td id="Wed8">Mathe</td>
-                 <td id="Thu8">Mathe</td>
-                 <td id="Fri8">Mathe</td>
-               </tr>
-              </table>
-            </div>
-            <a href="calendar.html">
-              <img src="Resources\Link.svg" height=30>
-              Zum Kalender
-            </a>
-        </article>
-      </li>
-      <li>
-        <article class="classes">
-          <h1>Kursübersicht</h1>
-          <div class="pendingHomework">
-            <h2>Hausaufgaben</h2>
-          </div>
-          <div class="upcomingExams">
-            <h2>Anstehende Klausuren</h2>
-          </div>
-          <a href="classes.html">
-            <img src="Resources\Link.svg" height=30>
-            Zur Kursübersicht
-          </a>
-        </article>
-      </li>
-      <li>
-        <article class="grades">
-          <h1>Notenrechner</h1>
-          <h2>Bisheriger Notendurchschnitt</h2>
-          <div class="avgGrade">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          </div>
-          <h2>Weitere Werte</h2>
-          <div class="Grade1">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          </div>
-          <a href="classes.html#gradeCalculator">
-            <img src="Resources\Link.svg" height=30>
-            Zum Notenrechner
-          </a>
-        </article>
-      </li>
-      <li>
-        <article class="files">
-          <h1>Dateiablage</h1>
-          <table class="filetable"style="width:100%">
-
-          </table>
-          <a href="files.html">
-            <img src="Resources\Link.svg" height=30>
-            Zur Dateiablage
-          </a>
-        </article>
-      </li>
-    </ul>
+  <section class="index-content">
+    <article class="login" id="1" style="display:block;">
+      <h1>Anmelden</h1>
+      <form>
+        <input type="text" placeholder="Benutzername" id="fname" name="fname"><br>
+        <input type="text" placeholder="Passwort" id="lname" name="lname"><br><br>
+        <input type="submit" name="login" value="Anmelden">
+        <button type="button" name="button" onclick="switchLoginSignup()">noch nicht registriert?</button>
+      </form>
+    </article>
+    </div>
+    <div >
+    <article class="signup" id="2" style="display: none;">
+      <h1>Registrieren</h1>
+      <form>
+        <input type="text" placeholder="E-Mail" id="email" name="email"><br>
+        <input type="text" placeholder="Benutzername" id="fname" name="fname"><br>
+        <input type="text" placeholder="Passwort" id="lname" name="lname"><br>
+        <input type="text" placeholder="Passwort wiederholen" id="lname" name="lname"><br><br>
+        <input type="submit" name="login" value="Registrieren">
+        <button type="button" name="button" onclick="switchLoginSignup()">bereits registriert?</button>
+      </form>
+    </article>
   </section>
-  <article class="serverStatus">
-    <table>
-      <thead>
-          <h1>Verbindungsstatus:</h1>
-      </thead>
-      <tr>
-        <th>Server-Adresse</th>
-        <th>Ping</th>
-      </tr>
-      <tr>
-        <td>example</td>
-        <td>example</td>
-      </tr>
-    </table>
-  </article>
   <footer>
-    <a href="info.html#Kontakt">Kontakt</a>
-    <a href="info.html#Impressum">Impressum</a>
-    <a href="info.html#Datenschutz">Datenschutz</a>
+    <a href="C:\Users\Erik Weber\Documents\GitHub\Q2-Webdatenbankprojekt\Code\info.html#Kontakt">Kontakt</a>
+    <a href="C:\Users\Erik Weber\Documents\GitHub\Q2-Webdatenbankprojekt\Code\info.html#Impressum">Impressum</a>
+    <a href="C:\Users\Erik Weber\Documents\GitHub\Q2-Webdatenbankprojekt\Code\info.html#Datenschutz">Datenschutz</a>
   </footer>
 </body>
 </html>
