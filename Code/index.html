@@ -23,27 +23,94 @@
   </script>
 </head>
 <body>
+<?php
+    $siteUsername = $userPassword = $email = $usernameErr = $passwordErr = $emailErr = $otherErr = "";
+
+    function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    switch ($_POST["submit"]) {
+          case "login":
+            if (empty($_POST["username"])) {
+                $usernameErr = "Username is required";
+            } else {
+                $siteUsername = test_input($_POST["username"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z ]*$/",$siteUsername)) {
+                    $usernameErr = "Only letters and white space allowed";
+                }
+            }
+            if (empty($_POST["password"])) {
+                $passwordErr = "password is required";
+            } else {
+                $userPassword = test_input($_POST["password"]);
+            }
+            break;
+          case "signup":
+            if (empty($_POST["username"])) {
+                $usernameErr = "Name is required";
+            } else {
+                $siteUsername = test_input($_POST["username"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z ]*$/",$siteUsername)) {
+                    $usernameErr = "Only letters and white space allowed";
+                }
+            }
+            if (empty($_POST["password"])) {
+                $passwordErr = "password is required";
+            } else {
+                $password = test_input($_POST["password"]);
+            }
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
+                }
+            }
+            break;
+    }
+
+
+?>
   <section class="index-content">
     <article class="login" id="1" style="display:block;">
       <h1>Anmelden</h1>
-      <form>
-        <input type="text" placeholder="Benutzername" id="fname" name="fname"><br>
-        <input type="text" placeholder="Passwort" id="lname" name="lname"><br><br>
+      <form name="login" method="post" action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+        <input type="text" placeholder="Benutzername" id="userName" name="fname"><br>
+        <span class="error"><?php echo $usernameErr;?></span>  
+        <br>
+        <input type="text" placeholder="Passwort" id="password" name="lname"><br>
+        <span class="error"><?php echo $passwordErr;?></span>
+        <span class="error"><?php echo $otherErr;?></span>
+        <br>
         <input type="submit" name="login" value="Anmelden">
-        <button type="button" name="button" onclick="switchLoginSignup()">noch nicht registriert?</button>
+        <button type="button" onclick="switchLoginSignup()">noch nicht registriert?</button>
       </form>
     </article>
-    </div>
-    <div >
     <article class="signup" id="2" style="display: none;">
       <h1>Registrieren</h1>
-      <form>
-        <input type="text" placeholder="E-Mail" id="email" name="email"><br>
-        <input type="text" placeholder="Benutzername" id="fname" name="fname"><br>
-        <input type="text" placeholder="Passwort" id="lname" name="lname"><br>
-        <input type="text" placeholder="Passwort wiederholen" id="lname" name="lname"><br><br>
-        <input type="submit" name="login" value="Registrieren">
-        <button type="button" name="button" onclick="switchLoginSignup()">bereits registriert?</button>
+      <form name="signup" method="post" action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+        <input type="text" placeholder="E-Mail" name="email"><br>
+        <span class="error"><?php echo $emailErr;?></span>
+        <br>
+        <input type="text" placeholder="Benutzername" name="userName"><br>
+        <span class="error"><?php echo $usernameErr;?></span>
+        <br>
+        <input type="text" placeholder="Passwort" name="password"><br>
+        <input type="text" placeholder="Passwort wiederholen" name="valPassword"><br>
+        <span class="error"><?php echo $passwordErr;?></span>
+        <span class="error"><?php echo $otherErr;?></span>
+        <br>
+        <input type="submit" name="signup" value="Registrieren">
+        <button type="button" onclick="switchLoginSignup()">bereits registriert?</button>
       </form>
     </article>
   </section>

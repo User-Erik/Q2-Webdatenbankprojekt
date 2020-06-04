@@ -72,14 +72,15 @@ footer a {
 /*<index.html>*/
 
 .index-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: black;
 }
 
 .login {
-  background-color: white;
+    background-color: white;
+    opacity: 5;
 }
 
 .signup {
